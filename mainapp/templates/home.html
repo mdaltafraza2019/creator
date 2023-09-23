@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {%block title%}<title>Home</title>{%endblock%}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+      {%if user.is_authenticated%}
+
+      <a class="navbar-brand" href="{%url 'userfile' %}">Hii {{user| capfirst}}</a>
+      {%else%}
+      <a class="navbar-brand" href="#">Creator</a>
+      {%endif%}
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="{%url 'home'%}">Home</a>
+          </li>
+
+          {%if user.is_authenticated%}
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'logout'%}">LogOut</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'addfile' %}">AddFile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'userfile' %}">Your File</a>
+          </li>
+          {%else%}
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'login'%}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'register'%}">SignUp</a>
+          </li>
+          {%endif%}
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {%block body%}
+  <div class="container">
+    <div class="bg-primary-subtle mt-3 p-3">
+      <h2 class=" text-center">Project</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, iusto officia? Sunt ut, optio dignissimos
+        aspernatur error ratione cupiditate dolor alias veritatis neque quod iure delectus dicta ea nostrum deserunt,
+        vero qui accusantium odit eos doloribus ducimus aut quae quasi. Reiciendis vitae dolor aspernatur modi.
+        Reiciendis accusantium molestiae provident eligendi dignissimos maiores impedit accusamus sint officiis deleniti
+        harum ad at perferendis cumque eaque veniam repellendus rerum quo vel voluptates excepturi, architecto aliquam
+        praesentium quas. Quibusdam, et? Quo maiores harum, dolores neque veniam quas alias, distinctio placeat, eaque
+        fuga debitis! Itaque amet magnam doloremque neque earum adipisci dignissimos quam vel labore, ut mollitia autem
+        consequatur assumenda, molestias alias commodi veniam qui? Temporibus cum eos, inventore totam maxime voluptatem
+        necessitatibus quam illum officia, nemo accusamus illo consequatur fugiat sunt quis itaque expedita. Ad quos
+        praesentium beatae et placeat qui maxime, id vitae, earum veniam illo nam natus voluptas doloremque pariatur
+        reprehenderit optio cum rem. Voluptatibus quam delectus minus minima consectetur nobis veniam non praesentium
+        laboriosam similique commodi optio sit, nihil neque pariatur aliquam, quas sequi, nam eius dignissimos
+        repellendus harum. Corrupti voluptatem repudiandae, autem delectus doloribus porro. Saepe recusandae accusamus
+        aspernatur suscipit ea magnam ut sequi illum, minus expedita dolore similique, at qui corporis molestiae autem
+        fugiat quidem perferendis non eos vitae eaque nesciunt. Vero enim recusandae, cum velit repellendus nisi
+        officiis nesciunt nemo alias quia expedita rem tempora quas ea sed similique quisquam perspiciatis eius in ipsa
+        eum, amet numquam? Dicta veritatis dolorem vel quam ipsum cupiditate eum repellendus, distinctio ea saepe
+        facere, excepturi laudantium cum. Nesciunt commodi illo, consequuntur veritatis dolores culpa soluta omnis
+        maiores deleniti facere laboriosam assumenda aspernatur repellendus, sed temporibus fuga quod modi deserunt
+        inventore aliquam voluptates obcaecati asperiores officia! Culpa porro ad fugit, tempora autem ipsa quod
+        consequuntur, suscipit rerum sit harum, labore fuga? Similique, ut.</p>
+
+    </div>
+  </div>
+  {%endblock%}
+  <div class="footer bg-primary text-center text-light fixed-bottom p-2">
+    @Copyrightmdaltafraza
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

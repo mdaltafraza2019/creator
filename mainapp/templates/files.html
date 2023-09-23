@@ -1,0 +1,40 @@
+{% extends 'home.html' %}
+{% load crispy_forms_tags %}
+{% block title %} <title>Login</title> {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 bg-primary-subtle mt-3 p-3">
+            <h3>Hii {{ user }}</h3>
+            <p>You can manage your files here (e.g., update, delete)</p>
+        </div>
+        <div class="col-md-6 mx-auto bg-primary-subtle mt-3 p-3">
+            <h3 class="bg-primary text-light text-center p-2">Your Files</h3>
+            <table class="table table-striped">
+                <tr>
+                    <th>
+                        File Name
+                    </th>
+                    <th>
+                        File URL
+                    </th>
+                    <th></th>
+                </tr>
+                {% for i in files %}
+                <tr>
+                    <td>{{ i.docoument_name }}</td>
+                    <td><a href="{{ i.document.url }}">file</a></td>
+                    <td>
+                        <a href="" class="btn bg-success p-2 text-light">Update</a>
+                        <a href="{% url 'delete_file' i.id %}" class="btn bg-danger p-2 text-light">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
